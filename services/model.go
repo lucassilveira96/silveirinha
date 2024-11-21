@@ -5,9 +5,10 @@ import (
 	"fmt"
 	"os"
 	"path/filepath"
-	"silveirinha/utils"
 	"strconv"
 	"strings"
+
+	"https://github.com/lucassilveira96/silveirinha/utils"
 )
 
 // GenerateModel generates Go model files for a given model name.
@@ -51,6 +52,11 @@ func GenerateModel(modelName string) error {
 	}
 
 	fmt.Printf("Model and Mapper files generated:\n- %s\n- %s\n- %s\n", domainFilePath, inboundFilePath, mapperFilePath)
+
+	err := GenerateRepository(modelName)
+	if err != nil {
+		return fmt.Errorf("error generating repository: %v", err)
+	}
 
 	return nil
 }
@@ -160,7 +166,7 @@ func writeModelFile(filePath, structName, inboundFilePath string) error {
 	}
 
 	// Ask user if they want to include standard date fields
-	fmt.Print("Include standard date fields (CreatedAt, UpdatedAt, ExcludedAt)? (y/n): ")
+	fmt.Print("Include standard date fields (CreatedAt, UpdatedAt, DeletedAt)? (y/n): ")
 	var includeDatesInput string
 	fmt.Scanln(&includeDatesInput)
 	includeDates := strings.ToLower(includeDatesInput) == "y"
@@ -169,7 +175,7 @@ func writeModelFile(filePath, structName, inboundFilePath string) error {
 	if includeDates {
 		writer.WriteString("\tCreatedAt time.Time `gorm:\"autoCreateTime;not null\" json:\"created_at\"`\n")
 		writer.WriteString("\tUpdatedAt time.Time `gorm:\"autoUpdateTime;not null\" json:\"updated_at\"`\n")
-		writer.WriteString("\tExcludedAt *time.Time `gorm:\"index\" json:\"excluded_at\"`\n")
+		writer.WriteString("\tDeletedAt *time.Time `gorm:\"index\" json:\"deleted_at\"`\n")
 	}
 
 	// Close the struct definition
@@ -238,6 +244,7 @@ func writeMapperFile(filePath, fileName, structName string) error {
 	// Write package declaration and imports
 	writer.WriteString("package mapper\n\n")
 	writer.WriteString("import (\n")
+	writer.WriteString(fmt.Sprintf("\t\"reflect\"\n"))
 	writer.WriteString(fmt.Sprintf("\t\"%s/internal/app/domain/model\"\n", projectFolder))
 	writer.WriteString(fmt.Sprintf("\t\"%s/internal/app/transport/inbound\"\n", projectFolder))
 	writer.WriteString(")\n\n")

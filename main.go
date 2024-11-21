@@ -3,7 +3,8 @@ package main
 import (
 	"log"
 	"os"
-	"silveirinha/cmd"
+
+	"https://github.com/lucassilveira96/silveirinha/cmd"
 )
 
 func main() {

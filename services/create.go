@@ -2,7 +2,8 @@ package services
 
 import (
 	"fmt"
-	"silveirinha/utils"
+
+	"https://github.com/lucassilveira96/silveirinha/utils"
 )
 
 // CreateProject creates a new Go project from a template by cloning the repository

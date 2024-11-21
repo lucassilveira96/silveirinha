@@ -4,10 +4,10 @@ import (
 	"fmt"
 	"log"
 	"os"
-	"silveirinha/services"
-	"silveirinha/utils"
 
 	"github.com/spf13/cobra"
+	"https://github.com/lucassilveira96/silveirinha/services"
+	"https://github.com/lucassilveira96/silveirinha/utils"
 )
 
 // Define the version string
