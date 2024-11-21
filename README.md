@@ -4,6 +4,10 @@
   <img src="public/images/silveirinha.png" alt="silveirinha" width="300">
 </p>
 
+<p align="center">
+  <img src="public/images/terminal.png" alt="terminal" width="300" height="200">
+</p>
+
 ## PT-BR
 
 `silveirinha` é uma ferramenta de linha de comando projetada para ajudar a gerar projetos Go e modelos de maneira fácil e rápida. Inclui comandos como `silveirinha create` para criar projetos e `silveirinha model` para gerar modelos. Esta ferramenta é ideal para agilizar o desenvolvimento e seguir boas práticas em suas aplicações Go.
