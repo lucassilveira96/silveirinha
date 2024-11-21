@@ -8,7 +8,7 @@ import (
 	"strconv"
 	"strings"
 
-	"https://github.com/lucassilveira96/silveirinha/utils"
+	"github.com/lucassilveira96/silveirinha/utils"
 )
 
 // GenerateModel generates Go model files for a given model name.

@@ -4,7 +4,7 @@ import (
 	"log"
 	"os"
 
-	"https://github.com/lucassilveira96/silveirinha/cmd"
+	"github.com/lucassilveira96/silveirinha/cmd"
 )
 
 func main() {

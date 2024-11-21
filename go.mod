@@ -1,4 +1,4 @@
-module https://github.com/lucassilveira96/silveirinha
+module github.com/lucassilveira96/silveirinha
 
 go 1.23
 

@@ -7,7 +7,7 @@ import (
 	"path/filepath"
 	"strings"
 
-	"https://github.com/lucassilveira96/silveirinha/utils"
+	"github.com/lucassilveira96/silveirinha/utils"
 )
 
 // GenerateRepository generates Go repository files for a given model name.
