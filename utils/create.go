@@ -3,7 +3,8 @@ package utils
 import (
 	"fmt"
 	"io/ioutil"
-	"os/exec"
+	"os"
+	"path/filepath"
 	"strings"
 )
 
@@ -19,8 +20,10 @@ func CloneRepository(projectName string) error {
 
 // RemoveGitDirectory removes the .git directory from the project to untrack it
 func RemoveGitDirectory(projectName string) error {
-	cmd := exec.Command("rm", "-rf", fmt.Sprintf("./%s/.git", projectName))
-	err := cmd.Run()
+	gitDir := filepath.Join(projectName, ".git")
+
+	// Cross-platform removal
+	err := os.RemoveAll(gitDir)
 	if err != nil {
 		return fmt.Errorf("error removing .git directory: %v", err)
 	}
@@ -35,17 +38,17 @@ func IsValidProjectName(name string) bool {
 // ReplacePackagesNames updates the project name in go.mod and source files
 func ReplacePackagesNames(projectName string) error {
 	// Path of the cloned project
-	path := fmt.Sprintf("./%s", projectName)
+	projectPath := fmt.Sprintf("./%s", projectName)
 
 	// Update go.mod
-	goModFile := fmt.Sprintf("%s/go.mod", path)
+	goModFile := filepath.Join(projectPath, "go.mod")
 	err := ReplaceGoMod(goModFile, projectName)
 	if err != nil {
 		return fmt.Errorf("error updating go.mod: %v", err)
 	}
 
 	// Update package names in source files
-	err = UpdateGoFiles(path, projectName)
+	err = UpdateGoFiles(projectPath, projectName)
 	if err != nil {
 		return fmt.Errorf("error updating package names in .go files: %v", err)
 	}
@@ -55,13 +58,39 @@ func ReplacePackagesNames(projectName string) error {
 
 // UpdateGoFiles updates package names in all Go files
 func UpdateGoFiles(path, projectName string) error {
-	// Find all .go files and replace the template name with the project name
-	cmd := exec.Command("find", path, "-type", "f", "-name", "*.go", "-exec", "sed", "-i", fmt.Sprintf("s/template-go-with-silverinha-file-genarator/%s/g", projectName), "{}", "+")
-	err := cmd.Run()
+	err := filepath.Walk(path, func(filePath string, info os.FileInfo, err error) error {
+		if err != nil {
+			return err
+		}
+
+		// Process only .go files
+		if !info.IsDir() && strings.HasSuffix(filePath, ".go") {
+			err = ReplaceTextInFile(filePath, "template-go-with-silverinha-file-genarator", projectName)
+			if err != nil {
+				return fmt.Errorf("error updating file %s: %v", filePath, err)
+			}
+		}
+		return nil
+	})
+	return err
+}
+
+// ReplaceTextInFile replaces all occurrences of oldText with newText in the given file
+func ReplaceTextInFile(filePath, oldText, newText string) error {
+	data, err := ioutil.ReadFile(filePath)
 	if err != nil {
-		return fmt.Errorf("error updating package names in .go files: %v", err)
+		return fmt.Errorf("error reading file %s: %v", filePath, err)
 	}
 
+	content := string(data)
+	newContent := strings.ReplaceAll(content, oldText, newText)
+
+	if newContent != content {
+		err = ioutil.WriteFile(filePath, []byte(newContent), 0644)
+		if err != nil {
+			return fmt.Errorf("error writing file %s: %v", filePath, err)
+		}
+	}
 	return nil
 }
 
