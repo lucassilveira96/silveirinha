@@ -1,7 +1,7 @@
 # silveirinha
 
 <p align="center">
-  <img src="public/images/silveirinha.go" alt="silveirinha" width="300">
+  <img src="public/images/silveirinha.png" alt="silveirinha" width="300">
 </p>
 
 ## PT-BR
