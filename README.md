@@ -5,7 +5,7 @@
 </p>
 
 <p align="center">
-  <img src="public/images/terminal.png" alt="terminal" width="300" height="200">
+  <img src="public/images/terminal.png" alt="terminal">
 </p>
 
 ## PT-BR
