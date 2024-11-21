@@ -6,6 +6,7 @@ import (
 	"os"
 	"path/filepath"
 	"strings"
+	"os/exec"
 )
 
 // CloneRepository clones the repository into the specified project name
