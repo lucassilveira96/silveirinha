@@ -5,12 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="fee9d7bb-f8e5-4fd9-af68-30dcb30f88b0" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/commands/repository.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmd/root.go" beforeDir="false" afterPath="$PROJECT_DIR$/cmd/root.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/go.mod" beforeDir="false" afterPath="$PROJECT_DIR$/go.mod" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/main.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/services/create.go" beforeDir="false" afterPath="$PROJECT_DIR$/services/create.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/services/model.go" beforeDir="false" afterPath="$PROJECT_DIR$/services/model.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/services/repository.go" beforeDir="false" afterPath="$PROJECT_DIR$/services/repository.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/services/create.go" beforeDir="false" afterPath="$PROJECT_DIR$/commands/create.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/services/model.go" beforeDir="false" afterPath="$PROJECT_DIR$/commands/model.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/services/repository.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/silverinha" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -24,7 +25,7 @@
       </list>
     </option>
   </component>
-  <component name="GOROOT" url="file:///snap/go/10743" />
+  <component name="GOROOT" url="file://$PROJECT_DIR$/../../../../../Program Files/Go" />
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
@@ -48,24 +49,28 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;DefaultGoTemplateProperty&quot;: &quot;Go File&quot;,
-    &quot;Go Build.go build silveirinha.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.go.formatter.settings.were.checked&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.go.migrated.go.modules.settings&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.go.modules.go.list.on.any.changes.was.set&quot;: &quot;true&quot;,
-    &quot;com.codeium.enabled&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;go.import.settings.migrated&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/home/egsys1/Área de Trabalho/pessoal/egsys/silveirinha/teste&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;onboarding.tips.debug.path&quot;: &quot;/home/egsys1/Área de Trabalho/pessoal/egsys/silveirinha/main.go&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "DefaultGoTemplateProperty": "Go File",
+    "Go Build.go build github.com/lucassilveira96/silveirinha.executor": "Run",
+    "Go Build.go build silveirinha.executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "RunOnceActivity.go.formatter.settings.were.checked": "true",
+    "RunOnceActivity.go.migrated.go.modules.settings": "true",
+    "RunOnceActivity.go.modules.go.list.on.any.changes.was.set": "true",
+    "com.codeium.enabled": "true",
+    "git-widget-placeholder": "master",
+    "go.import.settings.migrated": "true",
+    "go.sdk.automatically.set": "true",
+    "ignore.virus.scanning.warn.message": "true",
+    "last_opened_file_path": "C:/Users/lucas/OneDrive/Área de Trabalho/teste",
+    "node.js.detected.package.eslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "onboarding.tips.debug.path": "/home/egsys1/Área de Trabalho/pessoal/egsys/silveirinha/main.go"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/teste" />
@@ -73,7 +78,16 @@
       <recent name="$PROJECT_DIR$" />
     </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Go Build.go build github.com/lucassilveira96/silveirinha">
+    <configuration name="go build github.com/lucassilveira96/silveirinha" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
+      <module name="silveirinha" />
+      <working_directory value="$PROJECT_DIR$" />
+      <kind value="PACKAGE" />
+      <package value="github.com/lucassilveira96/silveirinha" />
+      <directory value="$PROJECT_DIR$" />
+      <filePath value="$PROJECT_DIR$/main.go" />
+      <method v="2" />
+    </configuration>
     <configuration name="go build silveirinha" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
       <module name="silveirinha" />
       <working_directory value="$PROJECT_DIR$" />
@@ -85,6 +99,7 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Go Build.go build github.com/lucassilveira96/silveirinha" />
         <item itemvalue="Go Build.go build silveirinha" />
       </list>
     </recent_temporary>
@@ -108,9 +123,14 @@
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="DlvLineBreakpoint">
-          <url>file://$PROJECT_DIR$/services/model.go</url>
+          <url>file://$PROJECT_DIR$/commands/model.go</url>
           <line>214</line>
           <option name="timeStamp" value="1" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
+          <url>file://$PROJECT_DIR$/commands/repository.go</url>
+          <line>137</line>
+          <option name="timeStamp" value="2" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

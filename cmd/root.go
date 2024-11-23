@@ -5,7 +5,7 @@ import (
 	"log"
 	"os"
 
-	"github.com/lucassilveira96/silveirinha/services"
+	"github.com/lucassilveira96/silveirinha/commands"
 	"github.com/lucassilveira96/silveirinha/utils"
 	"github.com/spf13/cobra"
 )
@@ -50,7 +50,7 @@ var createCmd = &cobra.Command{
 			return
 		}
 
-		err := services.CreateProject(projectName)
+		err := commands.CreateProject(projectName)
 		if err != nil {
 			log.Printf("Error creating project: %v", err)
 		} else {
@@ -79,7 +79,7 @@ var modelCmd = &cobra.Command{
 			return
 		}
 
-		err := services.GenerateModel(modelName)
+		err := commands.GenerateModel(modelName)
 		if err != nil {
 			log.Printf("Error generating model: %v", err)
 		} else {
