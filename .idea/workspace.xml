@@ -5,13 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="fee9d7bb-f8e5-4fd9-af68-30dcb30f88b0" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/commands/repository.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmd/root.go" beforeDir="false" afterPath="$PROJECT_DIR$/cmd/root.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/services/create.go" beforeDir="false" afterPath="$PROJECT_DIR$/commands/create.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/services/model.go" beforeDir="false" afterPath="$PROJECT_DIR$/commands/model.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/services/repository.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/silverinha" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/commands/model.go" beforeDir="false" afterPath="$PROJECT_DIR$/commands/model.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/commands/service.go" beforeDir="false" afterPath="$PROJECT_DIR$/commands/service.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/silveirinha.exe" beforeDir="false" afterPath="$PROJECT_DIR$/silveirinha.exe" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/utils/utils.go" beforeDir="false" afterPath="$PROJECT_DIR$/utils/utils.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

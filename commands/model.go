@@ -63,6 +63,11 @@ func GenerateModel(modelName string) error {
 		return fmt.Errorf("error generating service: %v", err)
 	}
 
+	err = GenerateHandler(modelName, structName)
+	if err != nil {
+		return fmt.Errorf("error generating service: %v", err)
+	}
+
 	return nil
 }
 
@@ -170,18 +175,9 @@ func writeModelFile(filePath, structName, inboundFilePath string) error {
 		writeInboundModelFile(inboundFilePath, structName, relatedField, "uint", relatedFieldSnake)
 	}
 
-	// Ask user if they want to include standard date fields
-	fmt.Print("Include standard date fields (CreatedAt, UpdatedAt, DeletedAt)? (y/n): ")
-	var includeDatesInput string
-	fmt.Scanln(&includeDatesInput)
-	includeDates := strings.ToLower(includeDatesInput) == "y"
-
-	// Include timestamps if required
-	if includeDates {
-		writer.WriteString("\tCreatedAt time.Time `gorm:\"autoCreateTime;not null\" json:\"created_at\"`\n")
-		writer.WriteString("\tUpdatedAt time.Time `gorm:\"autoUpdateTime;not null\" json:\"updated_at\"`\n")
-		writer.WriteString("\tDeletedAt *time.Time `gorm:\"index\" json:\"deleted_at\"`\n")
-	}
+	writer.WriteString("\tCreatedAt time.Time `gorm:\"autoCreateTime;not null\" json:\"created_at\"`\n")
+	writer.WriteString("\tUpdatedAt time.Time `gorm:\"autoUpdateTime;not null\" json:\"updated_at\"`\n")
+	writer.WriteString("\tDeletedAt *time.Time `gorm:\"index\" json:\"deleted_at\"`\n")
 
 	// Close the struct definition
 	writer.WriteString("}\n\n")
@@ -234,8 +230,6 @@ func writeMapperFile(filePath, fileName, structName string) error {
 
 	// Get the name of the current directory (the project folder)
 	projectFolder := filepath.Base(currentDir)
-	fmt.Println("debugger")
-	fmt.Println(projectFolder)
 
 	// Create the mapper file
 	file, err := os.Create(filePath)

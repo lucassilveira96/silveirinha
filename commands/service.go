@@ -160,7 +160,8 @@ func (s *%sServiceImpl) FindById(id uint) (*model.%s, error) {
 	return nil
 }
 
-// addLineToNewServicesBlock adds a line inside the `services := &Services{}` block in the `NewServices` function.
+// addLineToNewServicesBlock adds a line inside the `services := &Services{}` or `services := &Services{` block in the `NewServices` function.
+// Handles both empty and non-empty blocks.
 func addLineToNewServicesBlock(lines []string, newLine string) []string {
 	inBlock := false
 	var result []string
@@ -168,19 +169,29 @@ func addLineToNewServicesBlock(lines []string, newLine string) []string {
 	for _, line := range lines {
 		trimmedLine := strings.TrimSpace(line)
 
-		// Detect the start of the `services := &Services{` block
+		// Detect the start of the `services := &Services{` or `services := &Services{}` block
 		if strings.Contains(trimmedLine, "services := &Services{") {
 			inBlock = true
+			result = append(result, line) // Add the line containing "services := &Services{"
+
+			// Check if the block is immediately closed (e.g., `&Services{}`)
+			if strings.HasSuffix(trimmedLine, "}") {
+				// Split the line and insert the new line inside
+				result[len(result)-1] = strings.Replace(line, "}", fmt.Sprintf("\n%s\n}", newLine), 1)
+				inBlock = false
+			}
+			continue
 		}
 
-		// Add the new line inside the block before the closing brace
+		// Add the new line before the closing brace if in the block
 		if inBlock && trimmedLine == "}" {
-			result = append(result, newLine) // Add the new line before the closing brace
-			result = append(result, line)    // Add the original closing brace
+			result = append(result, newLine) // Add the new line inside the block
+			result = append(result, line)    // Add the closing brace
 			inBlock = false                  // Exit the block
 			continue
 		}
 
+		// Ensure lines outside the block are added normally
 		result = append(result, line)
 	}
 
@@ -213,14 +224,14 @@ func editServicesFile(servicesFile, modelName, structName, currentFolderName str
 	}
 
 	// Add the service field in the Services struct if not present
-	serviceField := fmt.Sprintf("\t%sService *%sService.%sServiceImpl", modelName, modelName, structName)
+	serviceField := fmt.Sprintf("\t%sService *%sService.%sServiceImpl", structName, modelName, structName)
 	if !strings.Contains(string(content), serviceField) {
 		lines = insertLineAfter(lines, "type Services struct {", serviceField)
 	}
 
 	// Add initialization in the `services := &Services{}` block
 	initLine := fmt.Sprintf("\t\t%sService: %sService.New%sService(%sRepository.New%sRepository(dbs)),",
-		modelName, modelName, structName, modelName, structName)
+		structName, modelName, structName, modelName, structName)
 	lines = addLineToNewServicesBlock(lines, initLine)
 
 	// Write the updated content back to services.go
