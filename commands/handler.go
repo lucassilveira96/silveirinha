@@ -59,8 +59,6 @@ import (
 	"%s/internal/app/transport/presenter"
 	"%s/internal/infra/variables"
 	"strconv"
-
-	"github.com/go-playground/validator/v10"
 	"github.com/gofiber/fiber/v2"
 	"github.com/gofiber/swagger"
 )
@@ -87,8 +85,6 @@ func (h *%sHandler) Configure(server *fiber.App) {
 	server.Put(serviceRoute+"/:id", h.update%s)
 	server.Delete(serviceRoute+"/:id", h.delete%s)
 }
-
-var validate = validator.New()
 
 // @Summary Get all %ss
 // @Description Get all %ss from the system

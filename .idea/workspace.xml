@@ -4,7 +4,12 @@
     <option name="autoReloadType" value="ALL" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fee9d7bb-f8e5-4fd9-af68-30dcb30f88b0" name="Changes" comment="" />
+    <list default="true" id="fee9d7bb-f8e5-4fd9-af68-30dcb30f88b0" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/commands/handler.go" beforeDir="false" afterPath="$PROJECT_DIR$/commands/handler.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/commands/repository.go" beforeDir="false" afterPath="$PROJECT_DIR$/commands/repository.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/silveirinha.exe" beforeDir="false" afterPath="$PROJECT_DIR$/silveirinha.exe" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -27,12 +32,12 @@
     &quot;assignee&quot;: &quot;lucassilveira-egsys&quot;
   }
 }</component>
-  <component name="GithubPullRequestsUISettings"><![CDATA[{
-  "selectedUrlAndAccountId": {
-    "url": "https://github.com/lucassilveira96/silveirinha",
-    "accountId": "67239ea9-bf1d-4b0a-b382-ed8f3bde3cfd"
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/lucassilveira96/silveirinha&quot;,
+    &quot;accountId&quot;: &quot;67239ea9-bf1d-4b0a-b382-ed8f3bde3cfd&quot;
   }
-}]]></component>
+}</component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 6
 }</component>
@@ -56,7 +61,7 @@
     "go.import.settings.migrated": "true",
     "go.sdk.automatically.set": "true",
     "ignore.virus.scanning.warn.message": "true",
-    "last_opened_file_path": "C:/Users/lucas/OneDrive/Área de Trabalho/teste",
+    "last_opened_file_path": "C:/Users/lucas/OneDrive/Área de Trabalho/silveirinha",
     "node.js.detected.package.eslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
@@ -121,7 +126,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DlvLineBreakpoint">
           <url>file://$PROJECT_DIR$/commands/repository.go</url>
-          <line>137</line>
+          <line>142</line>
           <option name="timeStamp" value="2" />
         </line-breakpoint>
       </breakpoints>
